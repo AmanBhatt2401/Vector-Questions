@@ -1,0 +1,31 @@
+#include <algorithm>    
+#include <iostream>
+#include <vector>      
+
+using namespace std;    
+
+// Function to find elements in the vector that are smaller than both adjacent neighbors
+vector<int> test(std::vector<int> nums)
+{
+    vector<int> temp; // Initializing an empty vector to store elements that meet the condition
+    for(int i=1; i<nums.size()-1; i++) {
+        // Checking if the current element is smaller than both its previous and next elements
+        if(nums[i] < nums[i-1] && nums[i] < nums[i+1]) 
+            temp.push_back(nums[i]); // If the condition is met, adding the element to the 'temp' vector
+    }
+    return temp; // Returning the vector containing elements smaller than their adjacent neighbors
+}
+
+int main(){
+    vector<int> nums = {7, 2 ,5, 3, 1, 5, 6}; // Test vector with non-matching elements
+    //vector<int> nums = {1, 2 ,5, 0, 3, 1, 7}; // Test vector with elements smaller than both adjacent neighbors
+
+    cout << "Original Vector elements:\n";
+    for (int x : nums)
+        cout << x << " "; 
+
+    vector<int> result = test(nums); // Calling the test function to find elements smaller than both neighbors
+    cout << "\nVector elements that are smaller than its adjacent neighbors:\n";   
+    for (int y : result)
+        cout << y << "\n"; 
+}
