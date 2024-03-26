@@ -1,0 +1,33 @@
+#include <algorithm>    
+#include <iostream>     
+#include <vector>       
+
+using namespace std;    
+
+// Function to modify the vector of strings by capitalizing the first character of each word and converting the rest to lowercase
+vector<string> test(vector<string> colors) {
+  for(int i = 0; i < colors.size(); i++) { // Looping through each string in the vector
+    colors[0][0] = toupper(colors[0][0]); // Capitalizing the first character of the first string in the vector
+
+    // Capitalizing the first character of each string in the vector and converting the rest to lowercase
+    colors[i][0] = toupper(colors[i][0]); // Capitalizing the first character of the current string
+    for(int l = 1; l < colors[i].size(); l++) { // Looping through the characters of the current string (except the first character)
+      colors[i][l] = tolower(colors[i][l]); // Converting characters to lowercase
+    }
+  }
+  return colors; // Returning the modified vector of strings
+}
+
+// Main function
+int main() {
+  vector<string> colors = {"red", "green", "black", "white", "Pink"}; // Initializing a vector of strings
+
+  cout << "Original Vector elements:\n";
+  for (string c : colors)
+    cout << c << " "; // Printing the original elements of the vector
+
+  vector<string> result = test(colors); // Calling the test function to modify the strings in the vector
+  cout << "\n\nCapitalize the first character of each vector element:\n";
+  for (string c : result)
+    cout << c << " "; // Printing the modified elements of the vector
+}
