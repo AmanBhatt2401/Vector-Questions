@@ -1,0 +1,28 @@
+#include <algorithm>    
+#include <iostream>     
+#include <vector>       
+
+using namespace std;    
+// Function to create an n x n matrix filled with values equal to 'n'
+vector<vector<int>> test(int n) {
+  vector<int> t(n, n); // Creating a vector 't' of size 'n' filled with 'n'
+  vector<vector<int>> arr(n, t); // Creating a 2D vector 'arr' of size 'n x n' filled with vector 't'
+  return arr; // Returning the 'n x n' matrix
+}
+
+// Main function
+int main() {
+  int n;
+  cout << "Input an integer value: ";
+  cin >> n; // Taking user input for the size of the matrix
+
+  std::vector<std::vector<int>> result = test(n); // Calling the test function to create the 'n x n' matrix
+  cout << "Create an n x n matrix by said integer:\n";
+
+  // Print the elements of the created 'n x n' matrix
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++)
+     cout<<("%d ", result[i][j]); // Printing each element of the matrix
+    cout<<("\n"); // Moving to the next row after each inner loop completes
+  }
+}
