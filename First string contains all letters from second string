@@ -1,0 +1,26 @@
+#include <iostream>  
+#include <vector>    
+
+using namespace std; 
+
+// Function to check if all characters in the second string are present in the first string
+string test(vector<string> strs) {
+    for (auto ch : strs.at(1)) { // Iterating through each character in the second string
+        // Checking if the uppercase or lowercase form of the character exists in the first string
+        if (strs.at(0).find(toupper(ch)) == string::npos && strs.at(0).find(tolower(ch)) == string::npos)
+            return "false"; // If a character is not found in the first string, return "false"
+    }
+    return "true"; // If all characters are found in the first string, return "true"
+}
+
+int main() {
+    vector<string> strs = {"Python", "Py"}; // Initializing a vector of strings
+
+    cout << "Original String elements: ";
+    for (string c : strs)
+        cout << c << " "; // Printing the original elements of the vector
+
+    cout << "\nCheck - First string contains all letters from second string: ";
+    string result = test(strs); // Calling the test function to check character presence in the strings
+    cout << result << " "; // Printing the result ("true" or "false")
+}
